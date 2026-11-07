@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Формат .kAR — KremilAR</title>
+<meta name="description" content="Собственный зашифрованный формат архивов .kAR: AES-256-GCM, ключ из пароля через PBKDF2, имена файлов скрыты, защита от подмены и обрезания.">
+<link rel="canonical" href="https://kremilorg.github.io/kremilar/kar.html">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta property="og:url" content="https://kremilorg.github.io/kremilar/kar.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="KremilAR">
+<meta property="og:title" content="Формат .kAR — KremilAR">
+<meta property="og:description" content="Собственный зашифрованный формат архивов .kAR: AES-256-GCM, ключ из пароля через PBKDF2, имена файлов скрыты, защита от подмены и обрезания.">
+<meta property="og:locale" content="ru_RU">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Формат .kAR — KremilAR">
+<meta name="twitter:description" content="Собственный зашифрованный формат архивов .kAR: AES-256-GCM, ключ из пароля через PBKDF2, имена файлов скрыты, защита от подмены и обрезания.">
+<meta name="color-scheme" content="light dark">
+<style>
+:root{--bg:#fff;--ink:#000;--muted:#555;--line:#ddd;--accent:#000;--accent-ink:#fff;--ph:#f3f3f3}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#000;--ink:#fff;--muted:#aaa;--line:#2a2a2a;--accent:#fff;--accent-ink:#000;--ph:#111;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#000;--ink:#fff;--muted:#aaa;--line:#2a2a2a;--accent:#fff;--accent-ink:#000;--ph:#111;color-scheme:dark}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.6 system-ui,"Segoe UI",sans-serif;padding-top:env(safe-area-inset-top,0)}
+main{max-width:920px;margin:0 auto;padding:32px 24px 56px}
+nav{display:flex;flex-wrap:wrap;gap:8px 22px;padding-bottom:16px;border-bottom:1px solid var(--line);margin-bottom:40px;font-size:15px}
+nav a{color:var(--muted);text-decoration:none}
+nav a:hover,nav a[aria-current]{color:var(--ink)}
+nav a[aria-current]{font-weight:700;text-decoration:underline;text-underline-offset:6px}
+nav .brand{color:var(--ink);font-weight:700;margin-right:auto}
+h1{font-size:40px;line-height:1.1;margin:0 0 8px}
+.sub{color:var(--muted);margin:0 0 24px;max-width:36em}
+h2{font-size:22px;margin:48px 0 12px}
+p{margin:0 0 14px;max-width:40em}
+ul,ol{margin:0 0 14px;padding-left:22px;max-width:40em}
+li{margin-bottom:6px}
+a{color:inherit}
+table{border-collapse:collapse;width:100%}
+th,td{text-align:left;padding:10px 12px 10px 0;border-bottom:1px solid var(--line);vertical-align:top}
+th{width:11em;font-weight:500;color:var(--muted);padding-right:16px}
+code{font:15px ui-monospace,Consolas,monospace;background:var(--ph);padding:1px 6px;border-radius:4px}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+.layout{display:flex;flex-wrap:wrap;border:1px solid var(--line);border-radius:8px;overflow:hidden;font:14px ui-monospace,Consolas,monospace;margin:0 0 8px}
+.layout div{padding:12px 10px;border-right:1px solid var(--line);background:var(--ph);cursor:pointer;flex:1 1 90px;text-align:center}
+.layout div:last-child{border-right:0}
+.layout div:hover,.layout div[aria-pressed="true"]{background:var(--accent);color:var(--accent-ink)}
+.layout small{display:block;font-size:12px;opacity:.7}
+.note{min-height:3.6em;color:var(--ink);max-width:none}
+.tool{background:var(--ph);border:1px solid var(--line);border-radius:8px;padding:20px}
+.tool label{display:block;font-weight:700;margin-bottom:8px}
+.tool input{width:100%;max-width:260px;padding:12px;font:16px ui-monospace,Consolas,monospace;border:1px solid var(--line);border-radius:6px;background:var(--bg);color:var(--ink)}
+.tool p{margin:14px 0 0;max-width:none}
+footer{margin-top:64px;padding-top:20px;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-between;color:var(--muted);font-size:14px}
+@media (max-width:700px){h1{font-size:34px}th{width:8em}}
+</style>
+</head>
+<body>
+<main>
+  <nav aria-label="Разделы сайта">
+    <a class="brand" href="index.html">KremilAR</a>
+    <a href="index.html">Главная</a>
+    <a href="multivolume.html">Многотомные архивы</a>
+    <a href="images.html">Изображения</a>
+    <a href="formats.html">Форматы</a>
+    <a href="kar.html" aria-current="page">Формат .kAR</a>
+    <a href="faq.html">Вопросы и ответы</a>
+    <a href="license.html">Лицензия</a>
+  </nav>
+
+  <h1>Формат .kAR</h1>
+  <p class="sub">Собственный зашифрованный архив KremilAR. Без пароля внутрь не заглянуть: нельзя прочитать даже названия файлов.</p>
+
+  <h2>Что это</h2>
+  <p>В .kAR лежит обычный TAR, а весь он целиком зашифрован. В отличие от ZIP с паролем, где имена файлов обычно видны всем, здесь снаружи нет ничего: ни списка файлов, ни их размеров, ни дат. Пароль в .kAR обязателен, архива без него не бывает.</p>
+
+  <h2>Как создать</h2>
+  <ol>
+    <li>Выделите файлы или папки в окне KremilAR.</li>
+    <li>В меню создания архива выберите «Создать зашифрованный архив .kAR (AES-256)».</li>
+    <li>Выберите уровень сжатия, введите пароль и повторите его. Пароль можно показать на экране, чтобы проверить опечатки.</li>
+    <li>Дождитесь конца. Пока идёт работа, окно не зависает, остановить её можно кнопкой «Стоп» или клавишей Esc.</li>
+  </ol>
+  <p>Архив сначала пишется во временный файл, поэтому при обрыве или нехватке места готового, но испорченного архива вы не получите.</p>
+
+  <h2>Как открыть</h2>
+  <p>Откройте файл .kAR как любой другой архив, программа спросит пароль. Расшифровка идёт на лету, временных файлов на диск программа не пишет. Если пароль неверный, программа так и скажет. Открыть .kAR можно только в KremilAR.</p>
+
+  <h2>Что внутри</h2>
+  <table>
+    <tr><th>Шифр</th><td>AES-256-GCM, шифрование со встроенной проверкой подлинности</td></tr>
+    <tr><th>Ключ из пароля</th><td>PBKDF2-HMAC-SHA256, 300 000 повторов, случайная соль 16 байт у каждого архива</td></tr>
+    <tr><th>Содержимое</th><td>TAR с именами в UTF-8, поэтому кириллица в названиях сохраняется</td></tr>
+    <tr><th>Сжатие</th><td>GZIP перед шифрованием: обычное, максимальное или без сжатия</td></tr>
+    <tr><th>Реализация</th><td>Криптография Windows (CNG), без сторонних шифровальных библиотек</td></tr>
+  </table>
+
+  <h2>Защита от подмены и обрезания</h2>
+  <p>Данные режутся на блоки по 64 КБ, и у каждого блока есть своя проверочная метка. Если в файле изменить хотя бы один байт, при чтении программа это заметит. Последний блок помечен особо, поэтому архив, у которого отрезали конец, тоже не пройдёт проверку: его нельзя незаметно урезать.</p>
+  <p>Различить неверный пароль и повреждённый файл в самом начале нельзя: в обоих случаях первый блок не проходит проверку, и программа сообщает «неверный пароль или файл повреждён».</p>
+
+  <h2>Устройство файла</h2>
+  <p>Нажмите на часть, чтобы прочитать, что в ней.</p>
+  <div class="layout" id="lay" role="group" aria-label="Схема файла .kAR">
+    <div data-k="0" tabindex="0" role="button" aria-pressed="false">kAR1<small>4 байта</small></div>
+    <div data-k="1" tabindex="0" role="button" aria-pressed="false">повторы<small>4 байта</small></div>
+    <div data-k="2" tabindex="0" role="button" aria-pressed="false">соль<small>16 байт</small></div>
+    <div data-k="3" tabindex="0" role="button" aria-pressed="false">nonce<small>8 байт</small></div>
+    <div data-k="4" tabindex="0" role="button" aria-pressed="false">блоки<small>до конца</small></div>
+  </div>
+  <p class="note" id="note" aria-live="polite">Заголовок занимает 32 байта, дальше идут блоки.</p>
+
+  <h2>Сколько места добавляет шифрование</h2>
+  <p>Заголовок 32 байта плюс 20 байт на каждый блок (длина и проверочная метка). Введите размер данных после сжатия.</p>
+  <div class="tool">
+    <label for="mb">Размер данных, МБ</label>
+    <input id="mb" type="number" min="0" step="any" value="100" inputmode="decimal">
+    <p id="calc" aria-live="polite"></p>
+  </div>
+
+  <h2>Когда выбирать .kAR</h2>
+  <ul>
+    <li>Нужно спрятать не только содержимое, но и названия файлов.</li>
+    <li>Архив пойдёт через почту или облако, где его может увидеть кто угодно.</li>
+    <li>Важно знать, что архив не подменили и не урезали по дороге.</li>
+  </ul>
+  <p>Если получатель не пользуется KremilAR, лучше сделать ZIP с шифрованием AES-256: его откроет любая программа. Подробнее о других форматах — на странице <a href="formats.html">форматов</a>.</p>
+
+  <p>Не теряйте пароль: восстановить его или расшифровать архив без него нельзя.</p>
+
+  <footer>
+    <span>KremilAR. Распаковщик архивов для Windows.</span>
+    <span><a href="index.html">На главную</a></span>
+  </footer>
+</main>
+<script>
+(function(){
+  var T=[
+    'Метка формата: четыре символа kAR1. По ней программа узнаёт файл.',
+    'Число повторов PBKDF2. Сейчас 300 000: чем их больше, тем дороже перебор паролей.',
+    'Случайная соль, 16 байт. Она есть у каждого архива, поэтому одинаковые пароли дают разные ключи.',
+    'Префикс nonce, 8 байт. К нему добавляется номер блока, так что у каждого блока свой nonce.',
+    'Блоки: длина (4 байта, старший бит отмечает последний блок), шифртекст до 64 КБ и проверочная метка 16 байт.'
+  ];
+  var lay=document.getElementById('lay'),note=document.getElementById('note'),items=[].slice.call(lay.children);
+  function pick(el){
+    items.forEach(function(x){x.setAttribute('aria-pressed',x===el?'true':'false')});
+    note.textContent=T[+el.getAttribute('data-k')];
+  }
+  items.forEach(function(el){
+    el.addEventListener('click',function(){pick(el)});
+    el.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();pick(el)}});
+  });
+  var mb=document.getElementById('mb'),out=document.getElementById('calc');
+  function fmt(n){return n<1024?n+' байт':n<1048576?(n/1024).toFixed(1)+' КБ':(n/1048576).toFixed(2)+' МБ'}
+  function calc(){
+    var v=parseFloat(String(mb.value).replace(',','.'));
+    if(!(v>=0)){out.textContent='Введите число.';return}
+    var n=Math.round(v*1048576),blocks=Math.max(1,Math.ceil(n/65536)),extra=32+20*blocks;
+    out.textContent='Блоков: '+blocks.toLocaleString('ru-RU')+'. Добавится '+fmt(extra)+', итого '+fmt(n+extra)+'.';
+  }
+  mb.addEventListener('input',calc);calc();
+})();
+</script>
+</body>
+</html>

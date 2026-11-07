@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Форматы архивов — KremilAR</title>
+<meta name="description" content="Какие форматы читает и создаёт KremilAR: ZIP, RAR, 7z, ISO, TAR, GZ, BZ2, XZ, ZST, CAB, ARJ, LZH, JAR.">
+<link rel="canonical" href="https://kremilorg.github.io/kremilar/formats.html">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta property="og:url" content="https://kremilorg.github.io/kremilar/formats.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="KremilAR">
+<meta property="og:title" content="Форматы архивов — KremilAR">
+<meta property="og:description" content="Какие форматы читает и создаёт KremilAR: ZIP, RAR, 7z, ISO, TAR, GZ, BZ2, XZ, ZST, CAB, ARJ, LZH, JAR.">
+<meta property="og:locale" content="ru_RU">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Форматы архивов — KremilAR">
+<meta name="twitter:description" content="Какие форматы читает и создаёт KremilAR: ZIP, RAR, 7z, ISO, TAR, GZ, BZ2, XZ, ZST, CAB, ARJ, LZH, JAR.">
+<meta name="color-scheme" content="light dark">
+<style>
+:root{--bg:#fff;--ink:#000;--muted:#555;--line:#ddd;--accent:#000;--accent-ink:#fff;--ph:#f3f3f3}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#000;--ink:#fff;--muted:#aaa;--line:#2a2a2a;--accent:#fff;--accent-ink:#000;--ph:#111;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#000;--ink:#fff;--muted:#aaa;--line:#2a2a2a;--accent:#fff;--accent-ink:#000;--ph:#111;color-scheme:dark}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.6 system-ui,"Segoe UI",sans-serif;padding-top:env(safe-area-inset-top,0)}
+main{max-width:920px;margin:0 auto;padding:32px 24px 56px}
+nav{display:flex;flex-wrap:wrap;gap:8px 22px;padding-bottom:16px;border-bottom:1px solid var(--line);margin-bottom:40px;font-size:15px}
+nav a{color:var(--muted);text-decoration:none}
+nav a:hover,nav a[aria-current]{color:var(--ink)}
+nav a[aria-current]{font-weight:700;text-decoration:underline;text-underline-offset:6px}
+nav .brand{color:var(--ink);font-weight:700;margin-right:auto}
+h1{font-size:40px;line-height:1.1;margin:0 0 8px}
+.sub{color:var(--muted);margin:0 0 24px;max-width:36em}
+h2{font-size:22px;margin:48px 0 12px}
+p{margin:0 0 14px;max-width:40em}
+table{border-collapse:collapse;width:100%}
+th,td{text-align:left;padding:10px 12px 10px 0;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-weight:500;color:var(--muted)}
+code{font:15px ui-monospace,Consolas,monospace;background:var(--ph);padding:1px 6px;border-radius:4px}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+.bar{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:12px;align-items:center}
+.bar input{flex:1 1 220px;max-width:340px;padding:11px 12px;font:16px system-ui,sans-serif;border:1px solid var(--line);border-radius:6px;background:var(--bg);color:var(--ink)}
+.chip{padding:9px 16px;border:1px solid var(--line);border-radius:999px;background:var(--bg);color:var(--ink);font:15px system-ui,sans-serif;cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.yes{font-weight:700}.no{color:var(--muted)}
+.empty{display:none;color:var(--muted)}
+footer{margin-top:64px;padding-top:20px;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-between;color:var(--muted);font-size:14px}
+footer a{color:inherit}
+@media (max-width:700px){h1{font-size:34px}.hide-s{display:none}}
+</style>
+</head>
+<body>
+<main>
+  <nav aria-label="Разделы сайта">
+    <a class="brand" href="index.html">KremilAR</a>
+    <a href="index.html">Главная</a>
+    <a href="multivolume.html">Многотомные архивы</a>
+    <a href="images.html">Изображения</a>
+    <a href="formats.html" aria-current="page">Форматы</a>
+    <a href="kar.html">Формат .kAR</a>
+    <a href="faq.html">Вопросы и ответы</a>
+    <a href="license.html">Лицензия</a>
+  </nav>
+
+  <h1>Форматы архивов</h1>
+  <p class="sub">Что KremilAR умеет открывать и что умеет создавать.</p>
+
+  <div class="bar" role="group" aria-label="Фильтры">
+    <input id="q" type="search" placeholder="Найти: zip, rar, iso…" aria-label="Поиск по форматам" autocomplete="off">
+    <button class="chip" data-f="all" aria-pressed="true">Все</button>
+    <button class="chip" data-f="create" aria-pressed="false">Можно создать</button>
+    <button class="chip" data-f="pass" aria-pressed="false">С паролем</button>
+  </div>
+
+  <table id="tbl">
+    <tr><th>Формат</th><th>Расширения</th><th>Чтение</th><th>Создание</th><th class="hide-s">Пароль</th></tr>
+    <tr data-create="1" data-pass="1"><td>ZIP</td><td><code>.zip</code></td><td class="yes">да</td><td class="yes">да, в том числе AES-256</td><td class="hide-s yes">да</td></tr>
+    <tr data-pass="1"><td>RAR</td><td><code>.rar</code></td><td class="yes">да</td><td class="no">нет</td><td class="hide-s yes">да</td></tr>
+    <tr data-pass="1"><td>7z</td><td><code>.7z</code></td><td class="yes">да</td><td class="no">нет</td><td class="hide-s yes">да</td></tr>
+    <tr data-create="1" data-pass="1"><td>kAR</td><td><code>.kar</code></td><td class="yes">да, нужен пароль</td><td class="yes">да, AES-256, имена файлов скрыты</td><td class="hide-s yes">всегда</td></tr>
+    <tr><td>ISO, UDF</td><td><code>.iso</code> <code>.udf</code></td><td class="yes">да, плюс виртуальный диск</td><td class="no">нет</td><td class="hide-s no">нет</td></tr>
+    <tr><td>TAR</td><td><code>.tar</code></td><td class="yes">да</td><td class="no">нет</td><td class="hide-s no">нет</td></tr>
+    <tr><td>GZ, BZ2, XZ, ZST</td><td><code>.gz</code> <code>.bz2</code> <code>.xz</code> <code>.zst</code></td><td class="yes">да</td><td class="no">нет</td><td class="hide-s no">нет</td></tr>
+    <tr><td>CAB</td><td><code>.cab</code></td><td class="yes">да</td><td class="no">нет</td><td class="hide-s no">нет</td></tr>
+    <tr><td>ARJ</td><td><code>.arj</code></td><td class="yes">да</td><td class="no">нет</td><td class="hide-s no">нет</td></tr>
+    <tr><td>LZH</td><td><code>.lzh</code></td><td class="yes">да</td><td class="no">нет</td><td class="hide-s no">нет</td></tr>
+    <tr data-create="1" data-pass="1"><td>JAR</td><td><code>.jar</code></td><td class="yes">да</td><td class="no">нет</td><td class="hide-s yes">да</td></tr>
+  </table>
+  <p class="empty" id="none">Ничего не найдено.</p>
+
+  <h2>Какой формат выбрать для нового архива</h2>
+  <p>Для обычной отправки подойдёт ZIP: его откроет любой компьютер, телефон и почтовая программа. Если в архиве личные документы, включите пароль с шифрованием AES-256. Для скорости выберите «без сжатия», для размера — «максимальное».</p>
+
+  <h2>Что ещё умеет программа</h2>
+  <p>Проверка целостности без распаковки, режим «Все файлы», сортировка, копирование, переименование и удаление. Подробнее — <a href="index.html">на главной странице</a> и в <a href="faq.html">вопросах и ответах</a>.</p>
+
+  <footer>
+    <span>KremilAR. Распаковщик архивов для Windows.</span>
+    <span><a href="index.html">На главную</a></span>
+  </footer>
+</main>
+<script>
+(function(){
+  var q=document.getElementById('q'),rows=[].slice.call(document.querySelectorAll('#tbl tr')).slice(1),
+      none=document.getElementById('none'),chips=[].slice.call(document.querySelectorAll('.chip')),f='all';
+  function apply(){
+    var v=q.value.trim().toLowerCase().replace(/^\./,''),n=0;
+    rows.forEach(function(r){
+      var ok=(!v||r.textContent.toLowerCase().indexOf(v)>-1)&&(f==='all'||r.hasAttribute('data-'+f));
+      r.style.display=ok?'':'none';if(ok)n++;
+    });
+    none.style.display=n?'none':'block';
+  }
+  q.addEventListener('input',apply);
+  chips.forEach(function(c){c.addEventListener('click',function(){
+    f=c.getAttribute('data-f');
+    chips.forEach(function(x){x.setAttribute('aria-pressed',x===c?'true':'false')});
+    apply();
+  })});
+})();
+</script>
+</body>
+</html>

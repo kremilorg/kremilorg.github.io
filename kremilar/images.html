@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Изображения — KremilAR</title>
+<meta name="description" content="KremilAR открывает PNG, JPG и другие изображения прямо из архива и умеет их немного править. Также читает образы дисков ISO.">
+<link rel="canonical" href="https://kremilorg.github.io/kremilar/images.html">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta property="og:url" content="https://kremilorg.github.io/kremilar/images.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="KremilAR">
+<meta property="og:title" content="Изображения — KremilAR">
+<meta property="og:description" content="KremilAR открывает PNG, JPG и другие изображения прямо из архива и умеет их немного править. Также читает образы дисков ISO.">
+<meta property="og:locale" content="ru_RU">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Изображения — KremilAR">
+<meta name="twitter:description" content="KremilAR открывает PNG, JPG и другие изображения прямо из архива и умеет их немного править. Также читает образы дисков ISO.">
+<meta name="color-scheme" content="light dark">
+<style>
+:root{--bg:#fff;--ink:#000;--muted:#555;--line:#ddd;--accent:#000;--accent-ink:#fff;--ph:#f3f3f3}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#000;--ink:#fff;--muted:#aaa;--line:#2a2a2a;--accent:#fff;--accent-ink:#000;--ph:#111;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#000;--ink:#fff;--muted:#aaa;--line:#2a2a2a;--accent:#fff;--accent-ink:#000;--ph:#111;color-scheme:dark}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.6 system-ui,"Segoe UI",sans-serif;padding-top:env(safe-area-inset-top,0)}
+main{max-width:920px;margin:0 auto;padding:32px 24px 56px}
+nav{display:flex;flex-wrap:wrap;gap:8px 22px;padding-bottom:16px;border-bottom:1px solid var(--line);margin-bottom:40px;font-size:15px}
+nav a{color:var(--muted);text-decoration:none}
+nav a:hover,nav a[aria-current]{color:var(--ink)}
+nav a[aria-current]{font-weight:700;text-decoration:underline;text-underline-offset:6px}
+nav .brand{color:var(--ink);font-weight:700;margin-right:auto}
+h1{font-size:40px;line-height:1.1;margin:0 0 8px}
+.sub{color:var(--muted);margin:0 0 24px;max-width:36em}
+h2{font-size:22px;margin:48px 0 12px}
+p{margin:0 0 14px;max-width:40em}
+ul,ol{margin:0 0 14px;padding-left:22px;max-width:40em}
+li{margin-bottom:6px}
+table{border-collapse:collapse;width:100%}
+th,td{text-align:left;padding:10px 12px 10px 0;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-weight:500;color:var(--muted)}
+code{font:15px ui-monospace,Consolas,monospace;background:var(--ph);padding:1px 6px;border-radius:4px}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+.search{width:100%;max-width:340px;padding:11px 12px;font:16px system-ui,sans-serif;border:1px solid var(--line);border-radius:6px;background:var(--bg);color:var(--ink);margin-bottom:12px}
+.empty{display:none;color:var(--muted)}
+.demo{background:var(--ph);border:1px solid var(--line);border-radius:8px;padding:20px}
+.demo canvas{display:block;width:100%;max-width:520px;height:auto;border-radius:6px;border:1px solid var(--line);background:#888}
+.ctl{display:grid;grid-template-columns:8em 1fr;gap:8px 12px;align-items:center;max-width:520px;margin-top:16px}
+.ctl input{width:100%;accent-color:var(--accent)}
+.demo .hint{color:var(--muted);font-size:14px;margin:12px 0 0}
+footer{margin-top:64px;padding-top:20px;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-between;color:var(--muted);font-size:14px}
+footer a{color:inherit}
+@media (max-width:700px){h1{font-size:34px}.ctl{grid-template-columns:6.5em 1fr}}
+</style>
+</head>
+<body>
+<main>
+  <nav aria-label="Разделы сайта">
+    <a class="brand" href="index.html">KremilAR</a>
+    <a href="index.html">Главная</a>
+    <a href="multivolume.html">Многотомные архивы</a>
+    <a href="images.html" aria-current="page">Изображения</a>
+    <a href="formats.html">Форматы</a>
+    <a href="kar.html">Формат .kAR</a>
+    <a href="faq.html">Вопросы и ответы</a>
+    <a href="license.html">Лицензия</a>
+  </nav>
+
+  <h1>Изображения</h1>
+  <p class="sub">Картинки из архива можно посмотреть, не распаковывая их на диск. Здесь же можно слегка поправить снимок.</p>
+
+  <h2>Встроенный просмотр</h2>
+  <p>Дважды щёлкните по картинке в списке файлов, и она откроется в окне программы. Архив при этом остаётся нетронутым, ничего лишнего на диск не пишется.</p>
+
+  <h2>Какие типы изображений открываются</h2>
+  <input class="search" id="q" type="search" placeholder="Найти формат: png, jpg, gif…" aria-label="Поиск по форматам" autocomplete="off">
+  <table id="tbl">
+    <tr><th>Формат</th><th>Расширения</th><th>Особенности</th></tr>
+    <tr><td>PNG</td><td><code>.png</code></td><td>Без потерь, прозрачность</td></tr>
+    <tr><td>JPEG</td><td><code>.jpg</code> <code>.jpeg</code></td><td>Фотографии</td></tr>
+    <tr><td>BMP</td><td><code>.bmp</code></td><td>Несжатые рисунки Windows</td></tr>
+    <tr><td>GIF</td><td><code>.gif</code></td><td>Простые рисунки и иконки</td></tr>
+    <tr><td>TIFF</td><td><code>.tif</code> <code>.tiff</code></td><td>Сканы и полиграфия</td></tr>
+    <tr><td>ICO</td><td><code>.ico</code></td><td>Значки Windows</td></tr>
+    <tr><td>WebP</td><td><code>.webp</code></td><td>Современный формат для сайтов</td></tr>
+  </table>
+  <p class="empty" id="none">Такого формата в списке нет.</p>
+
+  <h2>Лёгкое редактирование</h2>
+  <p>В просмотрщике справа внизу есть небольшая панель: кисть с выбором цвета, резкость, яркость и виньетка. Панель прячется и появляется по щелчку левой кнопкой мыши, чтобы не закрывать картинку.</p>
+  <p>Ниже можно попробовать, как работают яркость, резкость и виньетка. Это пример, а не сама программа.</p>
+  <div class="demo">
+    <canvas id="cv" width="520" height="320" aria-label="Пример картинки для настройки"></canvas>
+    <div class="ctl">
+      <label for="br">Яркость</label><input id="br" type="range" min="-50" max="50" value="0">
+      <label for="sh">Резкость</label><input id="sh" type="range" min="0" max="100" value="0">
+      <label for="vg">Виньетка</label><input id="vg" type="range" min="0" max="100" value="0">
+    </div>
+    <p class="hint">Двигайте ползунки.</p>
+  </div>
+
+  <h2>Образы дисков</h2>
+  <p>Не путайте картинки с образами дисков. Образы ISO и UDF KremilAR читает как архив: можно просмотреть содержимое, вытащить нужные файлы или подключить образ как виртуальный диск. Образы Windows тоже открываются.</p>
+
+  <footer>
+    <span>KremilAR. Распаковщик архивов для Windows.</span>
+    <span><a href="index.html">На главную</a></span>
+  </footer>
+</main>
+<script>
+(function(){
+  var q=document.getElementById('q'),rows=[].slice.call(document.querySelectorAll('#tbl tr')).slice(1),none=document.getElementById('none');
+  q.addEventListener('input',function(){
+    var v=q.value.trim().toLowerCase().replace(/^\./,''),n=0;
+    rows.forEach(function(r){var show=!v||r.textContent.toLowerCase().indexOf(v)>-1;r.style.display=show?'':'none';if(show)n++});
+    none.style.display=n?'none':'block';
+  });
+  var cv=document.getElementById('cv'),ctx=cv.getContext('2d'),W=cv.width,H=cv.height;
+  var base=document.createElement('canvas');base.width=W;base.height=H;
+  var b=base.getContext('2d');
+  var g=b.createLinearGradient(0,0,0,H);g.addColorStop(0,'#5aa0e8');g.addColorStop(.62,'#cfe6fa');g.addColorStop(.62,'#4f8f4a');g.addColorStop(1,'#2f5f2e');
+  b.fillStyle=g;b.fillRect(0,0,W,H);
+  b.fillStyle='#f6d34a';b.beginPath();b.arc(410,70,34,0,7);b.fill();
+  b.fillStyle='#8a8f98';b.beginPath();b.moveTo(40,200);b.lineTo(140,80);b.lineTo(230,200);b.fill();
+  b.fillStyle='#6f757e';b.beginPath();b.moveTo(160,200);b.lineTo(270,100);b.lineTo(360,200);b.fill();
+  b.fillStyle='#fff';b.fillRect(130,160,100,40);b.fillStyle='#b5482f';b.fillRect(140,168,26,32);
+  b.strokeStyle='#222';b.lineWidth=2;b.strokeRect(130,160,100,40);
+  var br=document.getElementById('br'),sh=document.getElementById('sh'),vg=document.getElementById('vg');
+  function render(){
+    var bv=+br.value,sv=+sh.value/100,vv=+vg.value/100;
+    ctx.clearRect(0,0,W,H);
+    ctx.filter='brightness('+(1+bv/100)+')';
+    ctx.drawImage(base,0,0);ctx.filter='none';
+    if(sv>0){
+      var src=ctx.getImageData(0,0,W,H),d=src.data,o=new Uint8ClampedArray(d),k=sv*1.2;
+      for(var y=1;y<H-1;y++)for(var x=1;x<W-1;x++){
+        var i=(y*W+x)*4;
+        for(var c=0;c<3;c++){
+          var s=5*o[i+c]-o[i-4+c]-o[i+4+c]-o[i-W*4+c]-o[i+W*4+c];
+          d[i+c]=o[i+c]+(s-o[i+c])*k*.5;
+        }
+      }
+      ctx.putImageData(src,0,0);
+    }
+    if(vv>0){
+      var r=ctx.createRadialGradient(W/2,H/2,H*.25,W/2,H/2,W*.62);
+      r.addColorStop(0,'rgba(0,0,0,0)');r.addColorStop(1,'rgba(0,0,0,'+vv*.85+')');
+      ctx.fillStyle=r;ctx.fillRect(0,0,W,H);
+    }
+  }
+  [br,sh,vg].forEach(function(e){e.addEventListener('input',render)});
+  render();
+})();
+</script>
+</body>
+</html>

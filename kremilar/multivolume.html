@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Многотомные архивы — KremilAR</title>
+<meta name="description" content="Как KremilAR открывает многотомные архивы: RAR part1, .r00, 7z.001, ZIP .z01. Определитель первого тома.">
+<link rel="canonical" href="https://kremilorg.github.io/kremilar/multivolume.html">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta property="og:url" content="https://kremilorg.github.io/kremilar/multivolume.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="KremilAR">
+<meta property="og:title" content="Многотомные архивы — KremilAR">
+<meta property="og:description" content="Как KremilAR открывает многотомные архивы: RAR part1, .r00, 7z.001, ZIP .z01. Определитель первого тома.">
+<meta property="og:locale" content="ru_RU">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Многотомные архивы — KremilAR">
+<meta name="twitter:description" content="Как KremilAR открывает многотомные архивы: RAR part1, .r00, 7z.001, ZIP .z01. Определитель первого тома.">
+<meta name="color-scheme" content="light dark">
+<style>
+:root{--bg:#fff;--ink:#000;--muted:#555;--line:#ddd;--accent:#000;--accent-ink:#fff;--ph:#f3f3f3;--ok:#0a7a2f;--bad:#b00020}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#000;--ink:#fff;--muted:#aaa;--line:#2a2a2a;--accent:#fff;--accent-ink:#000;--ph:#111;--ok:#5fd68a;--bad:#ff6b81;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#000;--ink:#fff;--muted:#aaa;--line:#2a2a2a;--accent:#fff;--accent-ink:#000;--ph:#111;--ok:#5fd68a;--bad:#ff6b81;color-scheme:dark}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.6 system-ui,"Segoe UI",sans-serif;padding-top:env(safe-area-inset-top,0)}
+main{max-width:920px;margin:0 auto;padding:32px 24px 56px}
+nav{display:flex;flex-wrap:wrap;gap:8px 22px;padding-bottom:16px;border-bottom:1px solid var(--line);margin-bottom:40px;font-size:15px}
+nav a{color:var(--muted);text-decoration:none}
+nav a:hover,nav a[aria-current]{color:var(--ink)}
+nav a[aria-current]{font-weight:700;text-decoration:underline;text-underline-offset:6px}
+nav .brand{color:var(--ink);font-weight:700;margin-right:auto}
+h1{font-size:40px;line-height:1.1;margin:0 0 8px}
+.sub{color:var(--muted);margin:0 0 24px;max-width:36em}
+h2{font-size:22px;margin:48px 0 12px}
+p{margin:0 0 14px;max-width:40em}
+ul,ol{margin:0 0 14px;padding-left:22px;max-width:40em}
+li{margin-bottom:6px}
+table{border-collapse:collapse;width:100%}
+th,td{text-align:left;padding:10px 12px 10px 0;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-weight:500;color:var(--muted)}
+code{font:15px ui-monospace,Consolas,monospace;background:var(--ph);padding:1px 6px;border-radius:4px}
+.btn{display:inline-block;padding:13px 28px;border-radius:6px;background:var(--accent);color:var(--accent-ink);font-weight:700;text-decoration:none;border:0;font-size:17px;cursor:pointer}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+.tool{background:var(--ph);border:1px solid var(--line);border-radius:8px;padding:20px}
+.tool label{display:block;font-weight:700;margin-bottom:8px}
+.tool input{width:100%;padding:12px;font:16px ui-monospace,Consolas,monospace;border:1px solid var(--line);border-radius:6px;background:var(--bg);color:var(--ink)}
+.tool .res{margin:16px 0 0;min-height:3.2em;max-width:none}
+.ok{color:var(--ok)}.bad{color:var(--bad)}
+footer{margin-top:64px;padding-top:20px;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-between;color:var(--muted);font-size:14px}
+footer a{color:inherit}
+@media (max-width:700px){h1{font-size:34px}}
+</style>
+</head>
+<body>
+<main>
+  <nav aria-label="Разделы сайта">
+    <a class="brand" href="index.html">KremilAR</a>
+    <a href="index.html">Главная</a>
+    <a href="multivolume.html" aria-current="page">Многотомные архивы</a>
+    <a href="images.html">Изображения</a>
+    <a href="formats.html">Форматы</a>
+    <a href="kar.html">Формат .kAR</a>
+    <a href="faq.html">Вопросы и ответы</a>
+    <a href="license.html">Лицензия</a>
+  </nav>
+
+  <h1>Многотомные архивы</h1>
+  <p class="sub">Большой архив часто режут на части, чтобы выложить или отправить. KremilAR собирает такие тома обратно и показывает их как один архив.</p>
+
+  <h2>Как открыть</h2>
+  <ol>
+    <li>Положите все тома в одну папку. Переименовывать их не нужно.</li>
+    <li>Откройте <strong>первый</strong> том через «Открыть» или Ctrl+O.</li>
+    <li>Остальные тома программа найдёт сама, по имени первого.</li>
+    <li>Дальше всё как с обычным архивом: просмотр, проверка, распаковка.</li>
+  </ol>
+  <p>Если не хватает какого-то тома, программа сообщит, какого именно. Проверка архива без распаковки покажет, что части повреждены, ещё до того, как вы потратите время на распаковку.</p>
+
+  <h2>Как называются тома</h2>
+  <table>
+    <tr><th>Формат</th><th>Первый том</th><th>Остальные тома</th></tr>
+    <tr><td>RAR, новая схема</td><td><code>name.part1.rar</code></td><td><code>name.part2.rar</code>, <code>name.part3.rar</code></td></tr>
+    <tr><td>RAR, старая схема</td><td><code>name.rar</code></td><td><code>name.r00</code>, <code>name.r01</code></td></tr>
+    <tr><td>7z</td><td><code>name.7z.001</code></td><td><code>name.7z.002</code></td></tr>
+    <tr><td>ZIP</td><td><code>name.zip.001</code> или <code>name.z01</code></td><td><code>name.zip.002</code>, <code>name.z02</code></td></tr>
+  </table>
+
+  <h2>Какой том открывать?</h2>
+  <p>Введите имя любого тома, и страница подскажет, что открывать в программе. Файл никуда не загружается, проверка идёт прямо в браузере.</p>
+  <div class="tool">
+    <label for="fn">Имя файла</label>
+    <input id="fn" type="text" placeholder="например, photos.part3.rar" autocomplete="off" spellcheck="false">
+    <p class="res" id="res" aria-live="polite">Введите имя файла.</p>
+  </div>
+
+  <h2>Советы</h2>
+  <ul>
+    <li>Скачивали по частям: сверьте размеры. Обрезанный последний том — самая частая причина ошибки.</li>
+    <li>Тома должны лежать рядом и называться так, как их назвал автор архива.</li>
+    <li>Для архива с паролем программа спросит пароль один раз, сразу для всех томов.</li>
+  </ul>
+
+  <footer>
+    <span>KremilAR. Распаковщик архивов для Windows.</span>
+    <span><a href="index.html">На главную</a></span>
+  </footer>
+</main>
+<script>
+(function(){
+  var inp=document.getElementById('fn'),res=document.getElementById('res');
+  function esc(s){return s.replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+  function pad(n,w){n=String(n);while(n.length<w)n='0'+n;return n}
+  function show(cls,html){res.innerHTML='<span class="'+cls+'">'+html+'</span>'}
+  function check(){
+    var s=inp.value.trim().replace(/^.*[\\\/]/,'');
+    if(!s){res.textContent='Введите имя файла.';return}
+    var m;
+    if((m=s.match(/^(.*)\.part(\d+)\.rar$/i))){
+      var w=m[2].length,first=m[1]+'.part'+pad(1,w)+'.rar';
+      return show('ok','Это том RAR № '+parseInt(m[2],10)+'. Открывайте <code>'+esc(first)+'</code>.')}
+    if((m=s.match(/^(.*)\.r(\d{2,})$/i))){
+      return show('ok','Это дополнительный том RAR. Открывайте <code>'+esc(m[1])+'.rar</code>.')}
+    if((m=s.match(/^(.*\.(7z|zip|rar))\.(\d{3})$/i))){
+      return show('ok','Это том № '+parseInt(m[3],10)+' архива '+m[2].toUpperCase()+'. Открывайте <code>'+esc(m[1])+'.001</code>.')}
+    if((m=s.match(/^(.*)\.z(\d{2})$/i))){
+      return show('ok','Это часть разрезанного ZIP. Открывайте <code>'+esc(m[1])+'.z01</code>, последняя часть лежит рядом как <code>'+esc(m[1])+'.zip</code>.')}
+    if((m=s.match(/^(.*)\.(rar|zip|7z)$/i))){
+      return show('ok','Похоже на обычный архив. Если рядом лежат <code>.r00</code> или <code>.z01</code>, это первый или последний том, открывайте его.')}
+    show('bad','Не похоже на имя тома. Проверьте расширение: <code>.part1.rar</code>, <code>.r00</code>, <code>.7z.001</code>, <code>.z01</code>.');
+  }
+  inp.addEventListener('input',check);
+})();
+</script>
+</body>
+</html>
