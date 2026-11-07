@@ -4,10 +4,15 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>KremilOrg — программы и игры</title>
-<meta name="description" content="KremilOrg — организация, которая делает программы и игры: VoltShred Browser, KremilAR и KremilRP.">
+<meta name="description" content="KremilOrg — группа, которая делает программы и игры. История с 2023 года, игра KremilRP и бесплатные программы для Windows: VoltShred Browser и KremilAR.">
 <meta name="keywords" content="KremilOrg, VoltShred Browser, KremilAR, KremilRP, браузер, архиватор, игра">
 <meta name="robots" content="index, follow, max-image-preview:large">
 <link rel="canonical" href="https://kremilorg.github.io/">
+<link rel="icon" href="favicon.ico" sizes="48x48">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
 <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
 <meta name="color-scheme" content="light dark">
@@ -17,10 +22,15 @@
 <meta property="og:title" content="KremilOrg — программы и игры">
 <meta property="og:description" content="VoltShred Browser, KremilAR и KremilRP: наши программы и игры.">
 <meta property="og:locale" content="ru_RU">
+<meta property="og:image" content="https://kremilorg.github.io/icon-512.png">
+<meta property="og:image:width" content="512">
+<meta property="og:image:height" content="512">
+<meta property="og:image:alt" content="Логотип KremilOrg">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://kremilorg.github.io/icon-512.png">
 <meta name="twitter:title" content="KremilOrg — программы и игры">
 <meta name="twitter:description" content="VoltShred Browser, KremilAR и KremilRP: наши программы и игры.">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"KremilOrg","url":"https://kremilorg.github.io/","description":"Организация, которая делает программы и игры.","makesOffer":[{"@type":"Offer","itemOffered":{"@type":"SoftwareApplication","name":"VoltShred Browser","url":"https://kremilorg.github.io/voltshred/"}},{"@type":"Offer","itemOffered":{"@type":"SoftwareApplication","name":"KremilAR","url":"https://kremilorg.github.io/kremilar/"}},{"@type":"Offer","itemOffered":{"@type":"VideoGame","name":"KremilRP","url":"https://kremilorg.github.io/kremilrp/"}}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"KremilOrg","url":"https://kremilorg.github.io/","logo":"https://kremilorg.github.io/icon-512.png","description":"Группа, которая делает программы и игры.","makesOffer":[{"@type":"Offer","itemOffered":{"@type":"SoftwareApplication","name":"VoltShred Browser","url":"https://kremilorg.github.io/voltshred/"}},{"@type":"Offer","itemOffered":{"@type":"SoftwareApplication","name":"KremilAR","url":"https://kremilorg.github.io/kremilar/"}},{"@type":"Offer","itemOffered":{"@type":"VideoGame","name":"KremilRP","url":"https://kremilorg.github.io/kremilrp/"}}]}</script>
 <style>
 :root{
   --bg:#fff; --ink:#000; --muted:#555; --line:#ddd; --accent:#000; --accent-ink:#fff; --ph:#f3f3f3;
@@ -53,6 +63,7 @@ a{color:inherit}
 .facts{border-collapse:collapse;width:100%}
 .facts th,.facts td{text-align:left;padding:10px 0;border-bottom:1px solid var(--line);vertical-align:top}
 .facts th{width:11em;font-weight:500;color:var(--muted);padding-right:16px}
+.quote{margin:24px 0;padding:4px 0 4px 20px;border-left:4px solid var(--accent);max-width:36em;font-size:19px}
 footer{margin-top:64px;padding-top:20px;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-between;color:var(--muted);font-size:14px}
 @media (prefers-reduced-motion:reduce){.card{transition:none}.card:hover{transform:none}}
 @media (max-width:760px){.grid{grid-template-columns:1fr}h1{font-size:38px}.facts th{width:8em}}
@@ -71,7 +82,7 @@ footer{margin-top:64px;padding-top:20px;border-top:1px solid var(--line);display
       <article class="card">
         <p class="kind">Браузер</p>
         <h3>VoltShred Browser</h3>
-        <p>Наш браузер для интернета.</p>
+        <p>Лёгкий и анонимный браузер для Windows на C++ и чистом WinAPI. Весит около полутора мегабайт без WebView2.</p>
         <a class="btn" href="voltshred/" aria-label="Открыть страницу VoltShred Browser">Открыть</a>
       </article>
     </li>
@@ -87,21 +98,59 @@ footer{margin-top:64px;padding-top:20px;border-top:1px solid var(--line);display
       <article class="card">
         <p class="kind">Игра</p>
         <h3>KremilRP</h3>
-        <p>Наша игра.</p>
+        <p>Игра с атмосферой того самого КРМП: новая графика, оптимизация, новые возможности и глубокая кастомизация.</p>
         <a class="btn" href="kremilrp/" aria-label="Открыть страницу KremilRP">Открыть</a>
       </article>
     </li>
   </ul>
 
-  <h2>Об организации</h2>
-  <p>KremilOrg — организация, которая создаёт собственные программы и игры. Мы пишем их сами, от первой строчки кода до сайта, и стараемся, чтобы всё работало быстро и было понятно с первого раза.</p>
-  <p>Каждый проект живёт на своей странице: там можно прочитать, что это такое, и открыть или скачать его. Новые проекты будут появляться здесь же.</p>
+  <section class="story" aria-labelledby="about">
+  <h2 id="about">О группе</h2>
+  <p>KremilOrg — название нашей группы. Мы создаём собственные программы и игры: пишем их сами, от первой строчки кода до сайта, который вы сейчас читаете. Нам важно, чтобы всё работало быстро, не требовало лишнего от компьютера и было понятно с первого раза, без долгих инструкций и настроек.</p>
+  <p>У каждого проекта есть своя страница, где можно прочитать, что это такое, как он появился и чем отличается от других, а затем открыть или скачать его. Игры и программы мы делаем вместе, а не по отдельности, и всё, что у нас есть, собрано здесь. Новые проекты тоже будут появляться на этом сайте.</p>
+  </section>
+
+  <section class="story" aria-labelledby="history">
+  <h2 id="history">История</h2>
+  <p>Группа появилась в 2023 году, а началось всё с создания игры, которая сегодня называется KremilRP, а тогда выходила под другим названием. Проект находился в разработке, развивался и постепенно набирал аудиторию. Это было время, когда мы только учились делать игры всерьёз и многое пробовали впервые.</p>
+  <p>Но позже онлайн резко упал. Финансирования у проекта не было, а без него поддерживать разработку и развивать игру становилось всё труднее. Разработчики один за другим ушли, и в итоге проект закрылся. Сама группа при этом никуда не пропала: название, идея и желание продолжать остались.</p>
+  <p>В августе 2025 года для игры началась новая разработка. Старые исходники были удалены полностью, чтобы не тащить за собой груз прошлого, мы создали новые каналы и группы и взялись за работу заново, уже с накопленным опытом. Это был не ремонт старого, а новый старт. В феврале 2026 года игра перешла на другой движок, и именно на нём она развивается сейчас.</p>
+  <p>В июле 2026 года рядом с игрой появились программы. 4 июля началась работа над VoltShred, а 27 июля параллельно с ним началась работа над KremilAR. Мы задумывали их как бесплатные нативные приложения для Windows. С одной стороны, они должны сделать нашу группу разнообразнее, чтобы нас знали не только по одной игре. С другой стороны, это попытка предложить лёгкую и многофункциональную альтернативу тяжёлым программам, которые забиты лишними компонентами и давно перестали быть простыми.</p>
+  </section>
+
+  <section class="story" aria-labelledby="game">
+  <h2 id="game">KremilRP</h2>
+  <p>KremilRP — самый давний проект группы: именно с этой игры всё началось, и именно к ней мы вернулись, когда решили начать заново. Сейчас мы делаем её с нуля и стараемся сохранить атмосферу того самого КРМП, но дать ей новую графику, оптимизацию, новые возможности и кастомизацию.</p>
+  <p>Нам важно не просто повторить то, что было когда-то, а сохранить ощущение, за которое игру любили, и сделать его современным. Поэтому дух оригинала остаётся, а всё остальное мы обновляем. Переход на новый движок в феврале 2026 года позволил по-новому взглянуть на то, как игра выглядит и как работает, и теперь картинка становится современнее.</p>
+  <p>Оптимизация нужна для того, чтобы игра шла плавно и не требовала от компьютера больше, чем необходимо. Новые возможности делают игру интереснее и не дают ей превратиться в копию прошлого. А кастомизация даёт больше свободы: игру можно настроить под себя, а не принимать как есть. Всё вместе должно звучать как «тот самый КРМП», только лучше.</p>
+  <p>Подробнее об игре и о том, как к ней присоединиться, можно узнать <a href="kremilrp/">на странице KremilRP</a>.</p>
+  </section>
+
+  <section class="story" aria-labelledby="voltshred">
+  <h2 id="voltshred">VoltShred Browser</h2>
+  <p>VoltShred — наш браузер для Windows, работа над ним началась 4 июля 2026 года. Он основан на WebView2 и сначала задумывался как простой и безопасный браузер, главной целью которого было не передавать никакие данные никуда. Мы хотели, чтобы человек мог открыть интернет и не думать о том, кто и что о нём узнает.</p>
+  <p>Но со временем мы поняли, что простоты и безопасности мало. Браузер, которым пользуются каждый день, должен быть ещё и удобным, поэтому мы решили сделать полноценный браузер со всем необходимым, а не ограничиваться минимальной оболочкой.</p>
+  <p>К августу у нас получился первый прототип: интерфейс целиком на HTML, сам браузер на C#. Результаты оказались плохими. Браузер получился тяжёлым, работал медленно, и к этому добавились проблемы с безопасностью и другие недостатки. Хуже всего была именно безопасность, ведь браузер делался в первую очередь для того, чтобы не передавать данные и защищать человека, а в таком виде он с этим не справлялся. Получалось, что главная идея проекта не выполняется.</p>
+  <p>Продолжать так было нельзя, и мы приняли непростое решение перенести проект на C++ и чистый WinAPI. По сути, браузер пришлось строить заново, и это потребовало времени, но зато он стал работать напрямую с Windows, без лишних надстроек. К середине октября основная разработка закончилась, дальше шла только доработка, а в ноябре 2026 года VoltShred стал полностью готов.</p>
+  <p>В итоге получился очень лёгкий браузер: без WebView2 он весит всего около полутора мегабайт. Сам WebView2 — отдельный компонент, и в этот размер он не входит. Он анонимный, так что идея, с которой всё начиналось, сохранилась. В нём есть необходимые удобства, чтобы пользоваться им каждый день. А в производительности он заметно быстрее сторонних браузеров.</p>
+  <p>Посмотреть на браузер и открыть его можно <a href="voltshred/">на странице VoltShred</a>.</p>
+  </section>
+
+  <section class="story" aria-labelledby="kremilar">
+  <h2 id="kremilar">KremilAR</h2>
+  <p>KremilAR — вторая наша программа для Windows. Идея появилась сразу после браузера: пока VoltShred ещё только набирал форму, мы поняли, что хотим сделать рядом с ним ещё и архиватор. Это многофункциональная программа, которая открывает ZIP, RAR, 7z и ISO как обычные папки, поэтому файлы внутри архива можно смотреть так же, как содержимое любой папки на компьютере. Кроме того, она создаёт ZIP с паролем AES-256 и поддерживает собственный зашифрованный формат .kAR.</p>
+  <p>Разработка началась 27 июля 2026 года и шла параллельно с работой над браузером. В отличие от VoltShred, KremilAR с самого начала писался на C++ и WinAPI, так что нам не пришлось переделывать его с нуля, как это случилось с первым прототипом браузера. Опыт, который мы получили на VoltShred, помог сразу выбрать правильное направление.</p>
+  <p>Главными целями были многофункциональность, скорость и низкий вес. Мы хотели, чтобы архиватор умел много, работал быстро и при этом не превращался в тяжёлую программу, забитую лишними компонентами. Именно этим он должен отличаться от привычных архиваторов, и именно это мы держали в приоритете на каждом этапе.</p>
+  <p>Разработка шла быстро и очень успешно. К сентябрю у нас был готовый прототип, и архиватор успешно прошёл все тесты с результатами «хорошо» и «неплохо». Особенно это касается распаковки архивов: здесь KremilAR показал себя лучше всего благодаря многопоточности и оптимизации.</p>
+  <p>Трудностей с программой почти не возникало, а правок было мало, поэтому разработку удалось завершить спокойно и без задержек. 18 сентября 2026 года работа над KremilAR была успешно завершена. Открыть программу и узнать о ней подробнее можно <a href="kremilar/">на странице KremilAR</a>.</p>
+  </section>
 
   <h2>Коротко</h2>
   <table class="facts">
     <tr><th>Название</th><td>KremilOrg</td></tr>
+    <tr><th>Основана</th><td>2023 год</td></tr>
     <tr><th>Чем занимаемся</th><td>Программы и игры</td></tr>
-    <tr><th>Проекты</th><td>VoltShred Browser, KremilAR, KremilRP</td></tr>
+    <tr><th>Проекты</th><td>KremilRP, VoltShred Browser, KremilAR</td></tr>
     <tr><th>Язык сайтов</th><td>Русский</td></tr>
   </table>
 

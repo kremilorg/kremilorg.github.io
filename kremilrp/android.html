@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Kremil RP | Версия для Android</title>
+<meta name="description" content="Kremil RP — ролевая игра для Windows. Откройте сайт на компьютере или отправьте ссылку себе с телефона. Торговля, экономика, фракции и свобода действий.">
+<meta name="keywords" content="кремил рп, kremil rp, ролевая игра, rp игра, скачать kremil rp, kremil rp android">
+<meta name="author" content="Kremil RolePlay Project">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#050505">
+<meta name="color-scheme" content="dark">
+<meta name="application-name" content="Kremil RP">
+<meta name="mobile-web-app-capable" content="yes">
+
+<link rel="canonical" href="https://kremilorg.github.io/kremilrp/android.html">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Kremil RP">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:title" content="Kremil RP | Играй с нами">
+<meta property="og:description" content="Ролевая игра для Windows: торговля, экономика, фракции и свобода действий.">
+<meta property="og:url" content="https://kremilorg.github.io/kremilrp/android.html">
+<meta property="og:image" content="https://kremilorg.github.io/kremilrp/img/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Kremil RP | Играй с нами">
+<meta name="twitter:description" content="Ролевая игра для Windows: торговля, экономика, фракции и свобода действий.">
+<meta name="twitter:image" content="https://kremilorg.github.io/kremilrp/img/og-image.png">
+
+<style>
+/* ---------- Шрифты и иконки (те же файлы, что и на основной странице) ---------- */
+@font-face{font-family:"Montserrat";font-style:normal;font-weight:400;font-display:swap;src:url(./fonts/montserrat-cyrillic-400-normal.woff2) format("woff2");unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:"Montserrat";font-style:normal;font-weight:400;font-display:swap;src:url(./fonts/montserrat-latin-400-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Montserrat";font-style:normal;font-weight:600;font-display:swap;src:url(./fonts/montserrat-cyrillic-600-normal.woff2) format("woff2");unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:"Montserrat";font-style:normal;font-weight:600;font-display:swap;src:url(./fonts/montserrat-latin-600-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Montserrat";font-style:normal;font-weight:800;font-display:swap;src:url(./fonts/montserrat-cyrillic-800-normal.woff2) format("woff2");unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:"Montserrat";font-style:normal;font-weight:800;font-display:swap;src:url(./fonts/montserrat-latin-800-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"FA Solid";font-style:normal;font-weight:900;font-display:block;src:url(./webfonts/fa-solid-900.woff2) format("woff2"),url(./webfonts/fa-solid-900.ttf) format("truetype")}
+@font-face{font-family:"FA Brands";font-style:normal;font-weight:400;font-display:block;src:url(./webfonts/fa-brands-400.woff2) format("woff2"),url(./webfonts/fa-brands-400.ttf) format("truetype")}
+
+.i{font-family:"FA Solid";font-weight:900;font-style:normal;line-height:1;display:inline-block;-webkit-font-smoothing:antialiased}
+.i.b{font-family:"FA Brands";font-weight:400}
+.i-share:before{content:"\f1e0"}.i-copy:before{content:"\f0c5"}.i-check:before{content:"\f00c"}
+.i-desktop:before{content:"\f390"}.i-windows:before{content:"\f17a"}.i-hammer:before{content:"\f6e3"}
+.i-users:before{content:"\f0c0"}.i-chip:before{content:"\f2db"}.i-shield:before{content:"\f3ed"}
+.i-car:before{content:"\f1b9"}.i-cart:before{content:"\f07a"}.i-chart:before{content:"\f201"}.i-building:before{content:"\f1ad"}
+.i-vk:before{content:"\f189"}.i-tg:before{content:"\f2c6"}.i-yt:before{content:"\f167"}.i-tt:before{content:"\e07b"}.i-mail:before{content:"\f0e0"}
+.i-down:before{content:"\f078"}
+
+/* ---------- Основа ---------- */
+:root{
+  --bg:#050505; --ink:#fff; --muted:#a3a3a3; --dim:#6f6f6f; --line:rgba(255,255,255,.12);
+  --panel:rgba(15,15,15,.55); --accent:#fff; --accent-ink:#000;
+ 
+  color-scheme:dark;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;border-radius:0}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%;scroll-behavior:smooth;scroll-padding-top:calc(64px + env(safe-area-inset-top,0px));overflow-x:hidden}
+body{
+  background:linear-gradient(-45deg,#030303,#161616,#0a0a0a,#1f1f1f);background-size:400% 400%;background-attachment:fixed;
+  animation:bg 18s ease infinite;
+  color:var(--ink);font:400 16px/1.65 "Montserrat",system-ui,"Segoe UI",Roboto,sans-serif;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-left:env(safe-area-inset-left,0px);padding-right:env(safe-area-inset-right,0px);
+  overflow-x:hidden;-webkit-tap-highlight-color:transparent;
+}
+@keyframes bg{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
+a{color:inherit}
+h1,h2,h3{font-weight:800;text-transform:uppercase;letter-spacing:.06em;line-height:1.15}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+.wrap{padding:0 20px;max-width:640px;margin:0 auto}
+
+/* ---------- Верхняя панель ---------- */
+.top{
+  position:sticky;top:0;z-index:20;display:flex;align-items:center;justify-content:space-between;gap:12px;
+  padding:14px 20px;background:rgba(5,5,5,.72);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--line);
+}
+.logo{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:.2em;text-decoration:none;min-height:44px}
+.logo .i{font-size:18px}
+.top a.soc{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border:1px solid var(--line);text-decoration:none;color:var(--muted)}
+
+/* ---------- Первый экран ---------- */
+.hero{
+  position:relative;min-height:calc(100vh - 72px);min-height:calc(100svh - 72px);
+  display:flex;flex-direction:column;justify-content:center;padding:56px 0 48px;
+  background:url(img/hero-bg.jpg) center/cover no-repeat;isolation:isolate;
+}
+.hero::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(to bottom,#050505 0%,rgba(5,5,5,.55) 28%,rgba(5,5,5,.7) 72%,#050505 100%)}
+.hero h1{font-size:clamp(2.4rem,12vw,3.6rem);margin-bottom:12px}
+.hero .tag{font-size:1rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:28px}
+.hero p.lead{color:#cfcfcf;margin-bottom:32px;max-width:34em}
+.hero .note{margin-top:20px;font-size:.88rem;color:var(--muted)}
+.hero .note a{color:var(--ink);font-weight:600}
+
+.btn{
+  display:flex;align-items:center;justify-content:center;gap:12px;width:100%;min-height:56px;padding:14px 24px;
+  font:800 .85rem/1.2 "Montserrat",system-ui,sans-serif;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;
+  cursor:pointer;border:1px solid var(--accent);background:var(--accent);color:var(--accent-ink);transition:background .2s,color .2s;
+}
+.btn:active{background:transparent;color:var(--accent)}
+.btn.ghost{background:rgba(15,15,15,.5);color:var(--ink);border-color:#555;-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
+.btn.ghost:active{border-color:var(--accent)}
+.actions{display:grid;gap:12px}
+
+/* ---------- Секции ---------- */
+section.s{padding:56px 0;border-top:1px solid var(--line)}
+.s h2{font-size:1.5rem;margin-bottom:28px}
+.s h2::after{content:"";display:block;width:48px;height:3px;background:var(--accent);margin-top:16px}
+
+.stats{display:grid;gap:0;border-top:1px solid var(--line)}
+.stat{display:flex;align-items:center;gap:18px;padding:20px 0;border-bottom:1px solid var(--line)}
+.stat .i{font-size:1.4rem;width:28px;text-align:center}
+.stat b{display:block;font-size:1rem;font-weight:800;letter-spacing:.04em;text-transform:uppercase}
+.stat span{font-size:.8rem;color:var(--muted)}
+
+.feat{display:grid;gap:14px}
+.card{display:flex;gap:18px;padding:22px 20px;border:1px solid var(--line);background:var(--panel);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+.card .i{font-size:1.6rem;width:32px;text-align:center;margin-top:2px;flex:none}
+.card h3{font-size:1rem;margin-bottom:8px}
+.card p{color:var(--muted);font-size:.92rem}
+
+/* раскрывающиеся блоки */
+details{border:1px solid var(--line);background:var(--panel);margin-bottom:10px}
+summary{
+  display:flex;justify-content:space-between;align-items:center;gap:16px;min-height:56px;padding:14px 18px;
+  cursor:pointer;list-style:none;font-weight:600;font-size:.95rem;
+}
+summary::-webkit-details-marker{display:none}
+summary .i{font-size:.8rem;color:var(--dim);transition:transform .2s}
+details[open] summary .i{transform:rotate(180deg);color:var(--ink)}
+details .body{padding:0 18px 20px;color:var(--muted);font-size:.92rem}
+details .body p+p{margin-top:10px}
+dl.spec{display:grid;gap:14px}
+dl.spec dt{font-size:.7rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--dim);margin-bottom:2px}
+dl.spec dd{color:#ddd;font-size:.9rem}
+.req-note{color:var(--muted);font-size:.88rem;margin-bottom:16px}
+
+.about p{color:#bdbdbd;margin-bottom:16px}
+
+/* ---------- Подвал ---------- */
+footer{padding:48px 0 calc(48px + 80px + env(safe-area-inset-bottom,0px));border-top:1px solid var(--line);background:rgba(0,0,0,.45);text-align:center}
+.flogo{font-size:1.6rem;font-weight:800;letter-spacing:.3em;margin-bottom:28px}
+.socials{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-bottom:32px}
+.socials a{display:inline-flex;align-items:center;justify-content:center;width:52px;height:52px;border:1px solid #333;background:rgba(20,20,20,.5);color:#aaa;text-decoration:none;font-size:1.2rem}
+.socials a:active{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.fnav{display:flex;flex-direction:column;gap:4px;margin-bottom:24px}
+.fnav a{display:block;padding:12px;color:#9a9a9a;text-decoration:none;font-size:.82rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase}
+.fmail{color:#7a7a7a;font-size:.88rem;margin-bottom:20px}
+.copy{color:#555;font-size:.75rem}
+
+/* ---------- Нижняя панель действий ---------- */
+.dock{
+  position:fixed;left:0;right:0;bottom:0;z-index:30;padding:12px 20px calc(12px + env(safe-area-inset-bottom,0px));
+  background:rgba(5,5,5,.88);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border-top:1px solid var(--line);
+  transform:translateY(110%);transition:transform .25s ease;
+}
+.dock.on{transform:none}
+.dock .btn{max-width:600px;margin:0 auto}
+
+/* ---------- Уведомление ---------- */
+.toast{
+  position:fixed;left:50%;bottom:calc(96px + env(safe-area-inset-bottom,0px));z-index:40;transform:translate(-50%,20px);opacity:0;pointer-events:none;
+  background:var(--accent);color:var(--accent-ink);font-weight:600;font-size:.88rem;padding:12px 20px;max-width:calc(100vw - 40px);text-align:center;
+  transition:opacity .2s,transform .2s;
+}
+.toast.on{opacity:1;transform:translate(-50%,0)}
+
+/* ---------- Появление: только если есть JS ---------- */
+.js .rv{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease}
+.js .rv.in{opacity:1;transform:none}
+
+@media (min-width:700px){
+  .actions{grid-template-columns:1fr 1fr}
+  .fnav{flex-direction:row;justify-content:center;flex-wrap:wrap}
+}
+@media (prefers-reduced-motion:reduce){
+  body{animation:none}
+  html{scroll-behavior:auto}
+  .js .rv{opacity:1;transform:none;transition:none}
+  .dock,.toast,summary .i{transition:none}
+}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <a class="logo" href="#top" aria-label="Kremil RP — наверх"><i class="i i-shield" aria-hidden="true"></i> KREMIL</a>
+  <a class="soc" href="https://t.me/kremilrp" target="_blank" rel="noopener" aria-label="Telegram"><i class="i b i-tg" aria-hidden="true"></i></a>
+</header>
+
+<main id="top">
+
+  <section class="hero">
+    <div class="wrap">
+      <h1>Kremil Roleplay</h1>
+      <p class="tag">Строй свою империю</p>
+      <p class="lead">Kremil RP — игра для компьютеров с Windows, на Android она не запускается. Откройте сайт на ПК или отправьте ссылку себе, чтобы скачать игру с компьютера.</p>
+
+      <div class="actions" id="heroActions">
+        <button class="btn" type="button" data-share><i class="i i-share" aria-hidden="true"></i> Отправить ссылку себе</button>
+        <button class="btn ghost" type="button" data-copy><i class="i i-copy" aria-hidden="true"></i> Скопировать ссылку</button>
+      </div>
+
+      <p class="note">Загрузка лаунчера пока недоступна: проект в разработке. Новости публикуем в <a href="https://vk.com/kremilrp" target="_blank" rel="noopener">VK</a> и <a href="https://t.me/kremilrp" target="_blank" rel="noopener">Telegram</a>.</p>
+    </div>
+  </section>
+
+  <section class="s" aria-labelledby="h-stats">
+    <div class="wrap">
+      <h2 id="h-stats" class="rv">Почему Kremil</h2>
+      <div class="stats rv">
+        <div class="stat"><i class="i i-users" aria-hidden="true"></i><div><b>Реальные игроки</b><span>Никаких ботов</span></div></div>
+        <div class="stat"><i class="i i-chip" aria-hidden="true"></i><div><b>Оптимизация</b><span>Для слабых ПК</span></div></div>
+        <div class="stat"><i class="i i-shield" aria-hidden="true"></i><div><b>Античит</b><span>Надёжная защита</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="s" id="about" aria-labelledby="h-feat">
+    <div class="wrap">
+      <h2 id="h-feat" class="rv">Возможности</h2>
+      <div class="feat">
+        <article class="card rv"><i class="i i-car" aria-hidden="true"></i><div><h3>Атмосфера большого города</h3><p>Мир, где каждый строит свою судьбу сам. Проработанные города, классические автомобили и дух старой школы, который мы бережно сохранили.</p></div></article>
+        <article class="card rv"><i class="i i-cart" aria-hidden="true"></i><div><h3>Торговля</h3><p>Покупайте и продавайте автомобили, недвижимость или ресурсы. Станьте лучшим торговцем в игре и сколотите состояние на перепродаже.</p></div></article>
+        <article class="card rv"><i class="i i-chart" aria-hidden="true"></i><div><h3>Экономика</h3><p>Участвуйте в аукционах, работайте на заводах и покупайте бизнесы. Развивайтесь и становитесь богаче.</p></div></article>
+        <article class="card rv"><i class="i i-building" aria-hidden="true"></i><div><h3>Фракции</h3><p>Вступайте в полицию, больницу или ОПГ. Захватывайте территории, следите за порядком или спасайте людей.</p></div></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="s" id="specs" aria-labelledby="h-specs">
+    <div class="wrap">
+      <h2 id="h-specs" class="rv">Требования к ПК</h2>
+      <p class="req-note rv">Проверьте, потянет ли ваш компьютер игру, прежде чем скачивать лаунчер.</p>
+
+      <details class="rv">
+        <summary>Минимальные <i class="i i-down" aria-hidden="true"></i></summary>
+        <div class="body">
+          <p style="margin-bottom:16px">Стабильный запуск лаунчера, загрузка интерфейса и базовая игра на минимальных настройках графики.</p>
+          <dl class="spec">
+            <div><dt>Система</dt><dd>Windows 7 / 10 / 11 (64-bit)</dd></div>
+            <div><dt>Процессор</dt><dd>Intel Core 2 Duo E8400 (3.00 ГГц) или Core i3-530; AMD Athlon II X2 250 или Phenom II X2 555</dd></div>
+            <div><dt>Оперативная память</dt><dd>2 ГБ</dd></div>
+            <div><dt>Видеокарта</dt><dd>NVIDIA GeForce GT 430 (1 ГБ) или 9800 GT; AMD Radeon HD 6450 (1 ГБ) или HD 5670; Intel HD Graphics 4000</dd></div>
+            <div><dt>Место на диске</dt><dd>5 ГБ (HDD / SSD)</dd></div>
+            <div><dt>Сеть</dt><dd>От 5 Мбит/с</dd></div>
+          </dl>
+        </div>
+      </details>
+
+      <details class="rv">
+        <summary>Рекомендуемые <i class="i i-down" aria-hidden="true"></i></summary>
+        <div class="body">
+          <p style="margin-bottom:16px">Мгновенное открытие лаунчера, плавные анимации интерфейса и комфортная игра без микрофризов.</p>
+          <dl class="spec">
+            <div><dt>Система</dt><dd>Windows 10 / 11 (64-bit)</dd></div>
+            <div><dt>Процессор</dt><dd>Intel Core i3-10100 или Core i5-4460; AMD Ryzen 3 1200 или FX-6300</dd></div>
+            <div><dt>Оперативная память</dt><dd>8 ГБ (с запасом под Chromium-движок)</dd></div>
+            <div><dt>Видеокарта</dt><dd>NVIDIA GeForce GTX 750 Ti (2 ГБ) или GTX 1050; AMD Radeon RX 460 (2 ГБ) или HD 7850</dd></div>
+            <div><dt>Место на диске</dt><dd>5 ГБ на SSD</dd></div>
+            <div><dt>Сеть</dt><dd>От 20 Мбит/с</dd></div>
+          </dl>
+        </div>
+      </details>
+    </div>
+  </section>
+
+  <section class="s" id="faq" aria-labelledby="h-faq">
+    <div class="wrap">
+      <h2 id="h-faq" class="rv">Вопросы</h2>
+
+      <details class="rv">
+        <summary>Есть ли версия для Android? <i class="i i-down" aria-hidden="true"></i></summary>
+        <div class="body"><p>Сейчас игра доступна только для Windows 7, 10 и 11. Если версия для телефонов появится, мы расскажем об этом в VK и Telegram.</p></div>
+      </details>
+
+      <details class="rv">
+        <summary>Как скачать игру? <i class="i i-down" aria-hidden="true"></i></summary>
+        <div class="body"><p>Откройте этот сайт на компьютере с Windows и нажмите «Скачать». Отправить себе ссылку можно кнопкой в начале страницы.</p><p>Загрузка лаунчера пока недоступна, потому что проект в разработке.</p></div>
+      </details>
+
+      <details class="rv">
+        <summary>Как заработать первые деньги? <i class="i i-down" aria-hidden="true"></i></summary>
+        <div class="body"><p>Новички начинают на Шахте или Лесопилке (GPS → Работы для новичков). Со 2 уровня доступны водитель автобуса и таксист. Дальше — перекуп, фракции или свой бизнес.</p></div>
+      </details>
+
+      <details class="rv">
+        <summary>Вылеты и проблемы с запуском <i class="i i-down" aria-hidden="true"></i></summary>
+        <div class="body"><p>Проверьте, что в пути к игре нет русских букв. Добавьте папку с игрой в исключения антивируса или Defender, запустите лаунчер от имени администратора и обновите драйверы видеокарты.</p></div>
+      </details>
+
+      <details class="rv">
+        <summary>Низкий FPS <i class="i i-down" aria-hidden="true"></i></summary>
+        <div class="body"><p>Введите команду /fpslimit 0, чтобы снять ограничение. В меню ESC отключите тени и сглаживание и уменьшите дальность прорисовки.</p></div>
+      </details>
+
+      <details class="rv">
+        <summary>Восстановление доступа к аккаунту <i class="i i-down" aria-hidden="true"></i></summary>
+        <div class="body"><p>Если аккаунт привязан к VK или Email, нажмите «Забыли пароль?» в лаунчере. Если нет, напишите техническому администратору в группе VK.</p></div>
+      </details>
+    </div>
+  </section>
+
+  <section class="s about" id="game-info" aria-labelledby="h-game">
+    <div class="wrap">
+      <h2 id="h-game" class="rv">Об игре</h2>
+      <p class="rv">Kremil RP — полноценная ролевая игра для тех, кто любит проработанный и качественный RolePlay. Зарабатывайте авторитет, покупайте элитную недвижимость и лучшие автомобили, играйте с друзьями и развивайте собственные структуры.</p>
+      <p class="rv">Выбирайте свой путь: от законопослушного гражданина во фракциях до криминального босса, державшего в страхе целые районы. Ждём вас в Kremil RolePlay!</p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="flogo">KREMIL RP</div>
+    <div class="socials">
+      <a href="https://vk.com/kremilrp" target="_blank" rel="noopener" aria-label="Группа ВКонтакте"><i class="i b i-vk" aria-hidden="true"></i></a>
+      <a href="https://youtube.com/@KremilRolePlay" target="_blank" rel="noopener" aria-label="YouTube"><i class="i b i-yt" aria-hidden="true"></i></a>
+      <a href="https://t.me/kremilrp" target="_blank" rel="noopener" aria-label="Telegram"><i class="i b i-tg" aria-hidden="true"></i></a>
+      <a href="https://tiktok.com/@kremil.rp" target="_blank" rel="noopener" aria-label="TikTok"><i class="i b i-tt" aria-hidden="true"></i></a>
+      <a href="mailto:kremilrp@gmail.com" aria-label="Написать на почту"><i class="i i-mail" aria-hidden="true"></i></a>
+    </div>
+    <nav class="fnav" aria-label="Дополнительно">
+      <a href="media.html">Сотрудничество</a>
+      <a href="v-group.html">Кто мы</a>
+      <a href="license.html">Лицензионное соглашение</a>
+    </nav>
+    <p class="fmail">kremilrp@gmail.com</p>
+    <p class="copy">© 2023–2026 Kremil RolePlay Project.</p>
+  </div>
+</footer>
+
+<div class="dock" id="dock" aria-hidden="true">
+  <button class="btn" type="button" data-share tabindex="-1"><i class="i i-share" aria-hidden="true"></i> Отправить ссылку себе</button>
+</div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+(function(){
+  document.documentElement.classList.add('js');
+
+  var PAGE = 'https://kremilorg.github.io/kremilrp/';
+  var toast = document.getElementById('toast'), tt;
+
+  function say(msg){
+    toast.textContent = msg; toast.classList.add('on');
+    clearTimeout(tt); tt = setTimeout(function(){ toast.classList.remove('on'); }, 2400);
+  }
+
+  function copyText(text){
+    if (navigator.clipboard && window.isSecureContext) return navigator.clipboard.writeText(text);
+    return new Promise(function(res, rej){
+      try{
+        var ta = document.createElement('textarea');
+        ta.value = text; ta.setAttribute('readonly','');
+        ta.style.cssText = 'position:fixed;top:0;left:0;opacity:0';
+        document.body.appendChild(ta); ta.select(); ta.setSelectionRange(0, text.length);
+        var ok = document.execCommand('copy'); document.body.removeChild(ta);
+        ok ? res() : rej();
+      }catch(e){ rej(e); }
+    });
+  }
+
+  function copyLink(){
+    copyText(PAGE).then(function(){ say('Ссылка скопирована'); },
+                        function(){ say('Не удалось скопировать. Ссылка: ' + PAGE); });
+  }
+
+  function shareLink(){
+    if (navigator.share){
+      navigator.share({ title: 'Kremil RP', text: 'Kremil RP — ролевая игра для Windows. Откройте на компьютере:', url: PAGE })
+        .catch(function(err){ if (err && err.name !== 'AbortError') copyLink(); });
+    } else {
+      copyLink();
+    }
+  }
+
+  document.querySelectorAll('[data-share]').forEach(function(b){ b.addEventListener('click', shareLink); });
+  document.querySelectorAll('[data-copy]').forEach(function(b){ b.addEventListener('click', copyLink); });
+
+  /* нижняя панель появляется, когда кнопки первого экрана ушли из виду */
+  var dock = document.getElementById('dock'), dockBtn = dock.querySelector('button');
+  function setDock(on){
+    dock.classList.toggle('on', on);
+    dock.setAttribute('aria-hidden', on ? 'false' : 'true');
+    dockBtn.tabIndex = on ? 0 : -1;
+  }
+  if ('IntersectionObserver' in window){
+    new IntersectionObserver(function(e){ setDock(!e[0].isIntersecting && e[0].boundingClientRect.top < 0); })
+      .observe(document.getElementById('heroActions'));
+
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){ if (en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); } });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+    document.querySelectorAll('.rv').forEach(function(el){ io.observe(el); });
+  } else {
+    document.querySelectorAll('.rv').forEach(function(el){ el.classList.add('in'); });
+  }
+})();
+</script>
+</body>
+</html>
