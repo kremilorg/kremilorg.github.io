@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>KremilAR — распаковщик архивов для Windows</title>
-<meta name="description" content="KremilAR — распаковщик архивов для Windows. Открывает ZIP, RAR, 7z и ISO как обычные папки, проверяет архивы и создаёт ZIP с паролем AES-256.">
-<meta name="keywords" content="KremilAR, распаковщик, архиватор, ZIP, RAR, 7z, ISO, Windows, AES-256">
+<meta name="description" content="KremilAR — распаковщик архивов для Windows. Открывает ZIP, RAR, 7z и ISO как обычные папки, проверяет архивы, создаёт ZIP с паролем AES-256 и свой зашифрованный формат .kAR. Бесплатная программа от KremilOrg.">
+<meta name="keywords" content="KremilAR, KremilOrg, распаковщик, архиватор, ZIP, RAR, 7z, ISO, kAR, Windows, AES-256">
 <meta name="application-name" content="KremilAR">
 <meta name="robots" content="index, follow">
 <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
@@ -14,14 +14,14 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="KremilAR">
 <meta property="og:title" content="KremilAR — распаковщик архивов для Windows">
-<meta property="og:description" content="Открывает ZIP, RAR, 7z и ISO как обычные папки. Проверка архивов и создание ZIP с шифрованием AES-256.">
+<meta property="og:description" content="Открывает ZIP, RAR, 7z и ISO как обычные папки. Создаёт ZIP с шифрованием AES-256 и зашифрованный формат .kAR.">
 <meta property="og:locale" content="ru_RU">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="KremilAR — распаковщик архивов для Windows">
 <meta name="twitter:description" content="Открывает ZIP, RAR, 7z и ISO как обычные папки.">
 <link rel="canonical" href="https://kremilorg.github.io/kremilar/">
 <meta property="og:url" content="https://kremilorg.github.io/kremilar/">
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "KremilAR", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Windows", "description": "Распаковщик архивов для Windows: ZIP, RAR, 7z, ISO, создание ZIP с шифрованием AES-256 и зашифрованных архивов .kAR.", "url": "https://kremilorg.github.io/kremilar/", "inLanguage": "ru", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "RUB"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "KremilAR", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Windows", "description": "Распаковщик архивов для Windows: ZIP, RAR, 7z, ISO, создание ZIP с шифрованием AES-256 и зашифрованных архивов .kAR.", "url": "https://kremilorg.github.io/kremilar/", "inLanguage": "ru", "author": {"@type": "Organization", "name": "KremilOrg", "url": "https://kremilorg.github.io/"}, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "RUB"}}</script>
 <link rel="icon" href="favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
 <link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
@@ -82,7 +82,8 @@ footer a{color:inherit}
   </ul>
 
   <h2>О программе</h2>
-  <p>KremilAR открывает архивы как обычные папки. Окно устроено как проводник: слева папки компьютера и диски, справа список файлов. Можно распаковать архив целиком или только выбранные файлы, проверить его без распаковки и собрать новый ZIP, в том числе с паролем.</p>
+  <p>KremilAR открывает архивы как обычные папки. Окно устроено как проводник: слева папки компьютера и диски, справа список файлов. Можно распаковать архив целиком или только выбранные файлы, проверить его без распаковки и собрать новый ZIP, в том числе с паролем, или зашифрованный архив .kAR.</p>
+  <p>KremilAR — бесплатная программа для Windows от группы <a href="https://kremilorg.github.io/">KremilOrg</a>. Она написана на C++ и WinAPI, многофункциональна, быстро работает и мало весит. Особенно быстро идёт распаковка архивов: она многопоточная и оптимизирована.</p>
   <p>Образы ISO читаются напрямую, включая образы Windows. Если архив защищён, программа спросит пароль.</p>
 
   <h2>Как пользоваться</h2>
@@ -110,9 +111,9 @@ footer a{color:inherit}
 
   <h2>Характеристики</h2>
   <table>
-    <tr><th>Платформа</th><td>Windows</td></tr>
+    <tr><th>Платформа</th><td>Windows, бесплатная программа</td></tr>
     <tr><th>Чтение</th><td>ZIP, RAR, 7z, ISO, TAR, GZ, BZ2, XZ, ZST, CAB, ARJ, LZH, JAR</td></tr>
-    <tr><th>Создание</th><td>ZIP, с шифрованием AES-256 по желанию</td></tr>
+    <tr><th>Создание</th><td>ZIP, с шифрованием AES-256 по желанию; собственный зашифрованный формат .kAR (AES-256)</td></tr>
     <tr><th>Образы</th><td>ISO, UDF, подключение как виртуальный диск</td></tr>
     <tr><th>Возможности</th><td>Проверка архива, режим «Все файлы», сортировка, копирование, переименование, удаление</td></tr>
     <tr><th>При совпадении имён</th><td>Заменять, пропускать, заменять только более новые</td></tr>
@@ -121,7 +122,7 @@ footer a{color:inherit}
 
   <footer>
     <span>KremilAR. Распаковщик архивов для Windows.</span>
-    <span>Построен на WinAPI и libarchive. <a href="#">Наверх</a></span>
+    <span>Написан на C++ и WinAPI, использует libarchive. <a href="https://kremilorg.github.io/">KremilOrg</a> · <a href="#">Наверх</a></span>
   </footer>
 </main>
 </body>
